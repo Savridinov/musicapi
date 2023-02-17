@@ -1,9 +1,13 @@
 from django.db import models
 
 
+#Can't solve the problem music.Album.artist: (models.E006) The field 'artist' clashes with the field 'artist' from model 'music.basemodel'.
 class BaseModel(models.Model):
-    created_date = models.DateTimeField(auto_now_add=True)
-    update_date = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
 
 
 class Artist(BaseModel):
@@ -23,15 +27,15 @@ class Music(BaseModel):
 
 class Album(BaseModel):
     artist = models.ForeignKey(Artist, related_name='artist', on_delete=models.CASCADE)
-    year = models.DateField()
+    year = models.IntegerField()
 
     def __str__(self):
         return f'{self.artist.full_name}'
 
 
 class AlbumItem(BaseModel):
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    music = models.ForeignKey(Music, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, related_name='albumitem', on_delete=models.CASCADE)
+    music = models.ForeignKey(Music, related_name='albumitem', on_delete=models.CASCADE)
     number = models.SmallIntegerField()
 
     def save(
