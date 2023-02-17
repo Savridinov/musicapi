@@ -1,7 +1,6 @@
 services:
   db:
     image: postgres
-    hostname: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
