@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from .models import Music, Album, Artist
+from .models import Music, Album, Artist, AlbumItem
 
 
 class TestMusicApp(TestCase):
@@ -12,6 +12,8 @@ class TestMusicApp(TestCase):
         self.music.artist.add(self.artist)
 
         self.album = Album.objects.create(artist=self.artist, year=2012)
+
+        self.album = AlbumItem.objects.create(album=self.album, music=self.music)
 
     def test_get_music_list(self):
         response = self.client.get('/music/')
@@ -40,3 +42,17 @@ class TestMusicApp(TestCase):
         self.assertEqual(len(data), 1)
         self.assertIsNotNone(data[0]['id'])
         self.assertEqual(data[0]['year'], 2012)
+
+    def test_get_albumitem_list(self):
+        response = self.client.get('/albumitem/')
+        data = response.data
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(data), 1)
+        self.assertIsNotNone(data[0]['id'])
+
+    def test_albumitem_music_number(self):
+        response = self.client.get('/albumitem/')
+        data = response.data
+        print(data)
+        self.assertEqual(data[0]['number'], 1)

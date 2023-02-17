@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Music, Album, Artist
+from .models import Music, Album, Artist, AlbumItem
 
 
 class MusicSerializer(serializers.ModelSerializer):
@@ -17,4 +17,10 @@ class ArtistSerializer(serializers.ModelSerializer):
 class AlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Album
+        fields = '__all__'
+
+
+class AlbumItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AlbumItem
         fields = '__all__'

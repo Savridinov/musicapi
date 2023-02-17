@@ -1,7 +1,6 @@
 from django.db import models
 
 
-#Can't solve the problem music.Album.artist: (models.E006) The field 'artist' clashes with the field 'artist' from model 'music.basemodel'.
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -36,7 +35,7 @@ class Album(BaseModel):
 class AlbumItem(BaseModel):
     album = models.ForeignKey(Album, related_name='albumitem', on_delete=models.CASCADE)
     music = models.ForeignKey(Music, related_name='albumitem', on_delete=models.CASCADE)
-    number = models.SmallIntegerField()
+    number = models.SmallIntegerField(blank=True, null=True)
 
     def save(
         self, force_insert=False, force_update=False, using=None, update_fields=None

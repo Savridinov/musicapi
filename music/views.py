@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import Music, Artist, Album
-from .serializers import MusicSerializer, ArtistSerializer, AlbumSerializer
+from .models import Music, Artist, Album, AlbumItem
+from .serializers import MusicSerializer, ArtistSerializer, AlbumSerializer, AlbumItemSerializer
 
 
 class MusicViewSet(ModelViewSet):
@@ -16,3 +16,8 @@ class ArtistViewSet(ModelViewSet):
 class AlbumViewSet(ModelViewSet):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
+
+
+class AlbumItemViewSet(ModelViewSet):
+    queryset = AlbumItem.objects.all()
+    serializer_class = AlbumItemSerializer

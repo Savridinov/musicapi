@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Music, Album, Artist
+from .models import Music, Album, Artist, AlbumItem
 
 
 @admin.register(Music)
@@ -22,3 +22,10 @@ class AlbumAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
     search_fields = ('year', 'artist')
     ordering = ('year', )
+
+
+@admin.register(AlbumItem)
+class AlbumItemAdmin(admin.ModelAdmin):
+    list_display = ('album', 'music', 'number', 'created_at', 'updated_at')
+    search_fields = ('artist', 'music')
+    readonly_fields = ('created_at', 'updated_at')
