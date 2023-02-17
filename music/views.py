@@ -8,7 +8,7 @@ class MusicViewSet(ModelViewSet):
     serializer_class = MusicSerializer
 
 
-class ArtusViewSet(ModelViewSet):
+class ArtistViewSet(ModelViewSet):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
