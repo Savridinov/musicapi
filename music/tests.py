@@ -54,5 +54,5 @@ class TestMusicApp(TestCase):
     def test_albumitem_music_number(self):
         response = self.client.get('/albumitem/')
         data = response.data
-        print(data)
+
         self.assertEqual(data[0]['number'], 1)

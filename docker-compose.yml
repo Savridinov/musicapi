@@ -1,4 +1,14 @@
 services:
+  db:
+    image: postgres
+    hostname: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=netflix
+      - POSTGRES_USER=james
+      - POSTGRES_PASSWORD=projectpassword
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -6,3 +16,9 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    environment:
+      - POSTGRES_NAME=netflix
+      - POSTGRES_USER=james
+      - POSTGRES_PASSWORD=projectpassword
+    depends_on:
+      - db
