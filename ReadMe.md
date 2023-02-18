@@ -16,7 +16,7 @@ DATABASES = {
 
 
 ## Запуск
-cd djangoProjec/
+cd misicapi/
 
 # create supersuser
 docker-compose exec web python manage.py createsuperuser
