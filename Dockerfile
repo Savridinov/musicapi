@@ -4,6 +4,8 @@ WORKDIR /code
 
 COPY . .
 
+RUN pip3 install djangorestframework-simplejwt
+
 RUN pip install -r requirements.txt
 
 EXPOSE 8000

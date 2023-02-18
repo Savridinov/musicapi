@@ -91,11 +91,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', 'djangoproject'),
-        'USER': os.environ.get('POSTGRES_USER', 'james'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'projectpassword'),
-        'HOST': os.environ.get('POSTGRES_HOST', '127.0.0.1'), # working on django
-        # 'HOST': 'db', # working on docker compose #right now i dont now how to fix it
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        # 'HOST': '127.0.0.1', #working on django
+        'HOST': 'db', # working on docker compose #right now i don't now how to fix it
         'PORT': 5432,
     }
 }
