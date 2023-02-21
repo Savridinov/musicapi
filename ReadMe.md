@@ -13,13 +13,13 @@
 если хотите чтобы на Docker запускался нужно раскоментировать и закомитировать другое
 
 ## Запуск
-cd djangoProject/
+    cd djangoProject/
 
 # create supersuser
-docker-compose exec web python manage.py createsuperuser
+    docker-compose exec web python manage.py createsuperuser
 
 #copmpose
-docker-compose up
+    docker-compose up
 и все 
 localhost:8000
  
