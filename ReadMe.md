@@ -1,16 +1,16 @@
 ## Введение
 Наш код сейчас будет запускатся на самом django потому что на settigs.py
 
-DATABASES = {
-    'default': {
-        ...
-        'HOST': '127.0.0.1', #working on django
-        'HOST': 'db', # working on docker compose #right now i don't now how to fix it
-        ...
+    DATABASES = {
+        'default': {
+            ...
+            'HOST': '127.0.0.1', #working on django
+            'HOST': 'db', # working on docker compose #right now i don't now how to fix it
+            ...
+            }
         }
-    }
 
-    если хотите чтобы на Docker запускался нужно раскоментировать и закомитировать другое
+если хотите чтобы на Docker запускался нужно раскоментировать и закомитировать другое
 
 ## Запуск
 cd djangoProject/
