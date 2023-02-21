@@ -11,18 +11,14 @@ DATABASES = {
     }
     если хотите чтобы на Django запускался нужно раскоментировать и закомитировать другое
 
-## JWT 
-Я дабавил авторизацию через JWT и я писал Unit tests  но пака что незнаю как через токен писат тесты поэтому тесты и CI actions на GitHub тоже выдаст ошыбку
-
-
 ## Запуск
-cd djangoProjec/
+cd djangoProject/
 
 # create supersuser
 docker-compose exec web python manage.py createsuperuser
 
 #copmpose
-docer-compose up
+docker-compose up
 и все 
 localhost:8000
  
@@ -31,3 +27,4 @@ localhost:8000/api/token/
 и введите свой username and password что вы создали
 
 ##  И Header JWT не забудьте
+JWT {access_token}
