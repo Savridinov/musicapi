@@ -94,8 +94,8 @@ DATABASES = {
         'NAME': 'djangoproject',
         'USER': 'james',
         'PASSWORD': 'projectpassword',
-        # 'HOST': '127.0.0.1', #working on django
-        'HOST': 'db', # working on docker compose #right now i don't now how to fix it
+        'HOST': '127.0.0.1', #working on django
+        # 'HOST': 'db', # working on docker compose #right now i don't now how to fix it
         'PORT': 5432,
     }
 }
