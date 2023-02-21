@@ -7,7 +7,6 @@ from rest_framework_jwt.compat import get_user_model
 
 User = get_user_model()
 
-
 class BaseTestCase(TestCase):
     def setUp(self) -> None:
         self.username = 'tester'
